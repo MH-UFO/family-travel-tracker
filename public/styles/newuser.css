@@ -149,3 +149,51 @@ button:hover {
 .swal2-confirm:hover {
     background: #3a8eef !important;
 }
+
+.swal2-cancel {
+    background-color: #b91515 !important;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 30px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        padding: 20px;
+        margin: 20px;
+        max-width: 100%;
+    }
+
+    h1 {
+        font-size: 1.3rem;
+    }
+
+    .color-options {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .color-box {
+        width: 35px;
+        height: 35px;
+    }
+}
+
+@media (max-height: 600px) {
+    body {
+        align-items: flex-start;
+        padding-top: 20px;
+    }
+
+    .container {
+        margin-top: 0;
+    }
+}
