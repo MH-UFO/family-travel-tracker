@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New User</title>
+    <link rel="stylesheet" href="/styles/newuser.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <a href="/" class="icon"> <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+            class="bi bi-box-arrow-left" viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+                d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0z" />
+            <path fill-rule="evenodd"
+                d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708z" />
+        </svg></a>
+    <div class="container">
+        <h1>Create a New User</h1>
+        <form action="/add_user" method="POST">
+            <div class="form-group">
+                <label for="name">User Name:</label>
+                <input type="text" id="name" name="name" required autocomplete="off">
+            </div>
+            <div class="form-group">
+                <label for="color">Choose a Color:</label>
+                <div class="color-options">
+                    <input type="radio" id="red" name="color" value="#ff0000">
+                    <label for="red" class="color-box red"></label>
+                    <input type="radio" id="lightskyblue" name="color" value="#68c5ff">
+                    <label for="lightskyblue" class="color-box lightskyblue"></label>
+                    <input type="radio" id="green" name="color" value="#1cf11c">
+                    <label for="green" class="color-box green"></label>
+                    <input type="radio" id="pink" name="color" value="#ff627d">
+                    <label for="pink" class="color-box pink"></label>
+                    <input type="radio" id="purple" name="color" value="#800080">
+                    <label for="purple" class="color-box purple"></label>
+                </div>
+            </div>
+            <button type="submit">Create User</button>
+        </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        const form = document.querySelector('form');
+        form.addEventListener('submit', (e) => {
+            const selectedColor = document.querySelector('input[name="color"]:checked');
+            if (!selectedColor) {
+                e.preventDefault();
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Please select a color before creating a user!',
+                });
+            }
+        });
+
+        if ("<%=locals.error%>" === "true") {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                timer: 5000,
+                text: 'This user is already existed',
+            });
+        }
+    </script>
+</body>
+
+</html>

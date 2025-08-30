@@ -1,0 +1,151 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #121212;
+    color: #e0e0e0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: #1e1e1e;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+h1 {
+    color: #e0e0e0;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #e0e0e0;
+    font-weight: 500;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+.color-options {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+.color-box {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border-color 0.3s;
+}
+
+.color-box.red {
+    background-color: #b91515;
+}
+
+.color-box.lightskyblue {
+    background-color: #68c5ff;
+}
+
+.color-box.green {
+    background-color: #1cf11c;
+}
+
+.color-box.pink {
+    background-color: #ff627d;
+}
+
+.color-box.purple {
+    background-color: #800080;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+input[type="radio"]:checked+.color-box {
+    border: 4px solid #ffffff;
+}
+
+button {
+    background-color: #4a9eff;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #3a8eef;
+}
+
+.icon {
+    position: fixed;
+    left: 25px;
+    top: 25px;
+    color: rgb(255, 255, 255);
+    border-radius: 50%;
+    text-align: center;
+}
+
+.icon:hover {
+    color: #848484;
+    cursor: pointer;
+}
+
+.swal2-container {
+    z-index: 20000 !important;
+}
+
+.swal2-popup {
+    background: #2a2a2a !important;
+    border: 1px solid #404040 !important;
+    color: #e0e0e0 !important;
+}
+
+.swal2-title {
+    color: #e0e0e0 !important;
+}
+
+.swal2-content {
+    color: #b0b0b0 !important;
+}
+
+.swal2-confirm {
+    background: #4a9eff !important;
+}
+
+.swal2-confirm:hover {
+    background: #3a8eef !important;
+}
