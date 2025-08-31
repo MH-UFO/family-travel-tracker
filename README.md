@@ -6,7 +6,6 @@ A beautiful and responsive family travel tracker created by Mohammad Hosein Khaj
 - CSS
 - JS
 - Node.js
-- NPM(express , body-parser)
 - EJS
 - PostgreSql
 
