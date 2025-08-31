@@ -376,9 +376,30 @@
       </section>
     </div>
     <div class="sidebar">
-      <h3 class="name" for="<%=locals.id%>">
-        <%= locals.name%>
-      </h3>
+      <div class="title">
+        <h3 class="name" for="<%=locals.id%>">
+          <%= locals.name%>
+        </h3>
+        <button class="edit" id="<%=locals.id%>">
+          <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-pencil-square"
+            viewBox="0 0 16 14">
+            <path
+              d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+            <path fill-rule="evenodd"
+              d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z" />
+          </svg>
+        </button>
+      </div>
+      <form method="post" class="edit-user" action="/edit_user/<%=locals.id %>">
+        <input type="text" name="name" class="edit-input" value="<%= locals.name%>" required hidden>
+        <button class="sub-edit" type="submit" hidden>
+          <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-check2"
+            viewBox="0 0 16 16">
+            <path
+              d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0" />
+          </svg>
+        </button>
+      </form>
       <form action="/add" method="post">
         <input type="text" name="country" required autofocus placeholder="Enter the correct country name">
         <input type="hidden" name="id" value="<%=locals.id%>">
@@ -423,7 +444,8 @@
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script>
 
-    $("#1").remove()
+    $("form#1").remove()
+    $("button#1").remove()
 
     //add country
     const country_codes = "<%= countries %>".split(",")
@@ -434,7 +456,7 @@
       }
     });
     // remove country
-    $(document).on("click", "svg path , .del-btn", async function () {
+    $(document).on("click", ".ag-canvas_svg path , .del-btn", async function () {
       let country_code = $(this).attr("id")
       let id = $("h3").attr("for")
       let name = $(".name").text().trim()
@@ -470,6 +492,14 @@
     if ("<%= locals.err%>" == "true") {
       showError()
     }
+
+    $(".edit , .sub-edit").click(function () {
+      $(".name").toggle()
+      $(".edit").toggle()
+      $(".edit-input").toggle()
+      $(".sub-edit").toggle()
+    })
+
   </script>
 </body>
 

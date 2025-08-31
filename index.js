@@ -123,6 +123,18 @@ app.post("/remove_user", async (req, res) => {
   }
 });
 
+app.post("/edit_user/:id" , async (req, res)=>{
+  try {
+    const id = parseInt(req.params.id)
+    const name = req.body.name.trim()
+    await db.query("UPDATE users set name = $1 where id = $2", [name, id])
+    res.redirect(`/users/${name}`)
+  } catch (err) {
+    console.log("an error occurred in editing:" + err.message);
+    res.status(500).redirect("/");
+  }
+})
+
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });
