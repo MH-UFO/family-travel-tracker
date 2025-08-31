@@ -13,7 +13,7 @@ const db = new Pool({
   user: "postgres",
   host: "localhost",
   database: "country",
-  password: "13873387",
+  password: "",
   port: 5000
 })
 let showCountryErr = false
